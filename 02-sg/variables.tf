@@ -1,6 +1,5 @@
 variable "project_name" {
-    default = "expense"
-  
+    default = "expense"  
 }
 
 variable "environment" {
@@ -12,11 +11,9 @@ variable "common_tags" {
         Project = "expense"
         Environment = "dev"
         Terraform = "true"
-    }
-  
+    } 
 }
 
 variable "db_sg_discription" {
-    default = "SG for DB MySQL Instances"
-  
+    default = "SG for DB MySQL Instances"  
 }

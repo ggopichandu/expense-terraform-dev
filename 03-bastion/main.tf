@@ -1,32 +1,32 @@
-# module "bastion" {
-#   source  = "terraform-aws-modules/ec2-instance/aws"
+module "bastion" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
 
-#   name = "${var.project_name}-${var.environment}-bastion"
+  name = "${var.project_name}-${var.environment}-bastion"
 
-#   instance_type = "t3.micro"
-#   vpc_security_group_ids = [data.aws_ssm_parameter.bastion_sg_id.value]
-#   # Convert StringList to list and get first element
-#   subnet_id = local.public_subnet_id
-#   ami = data.aws_ami.ami_info.id
-
-#   tags = merge(
-#         var.common_tags,
-#     {
-#         Name = "${var.project_name}-${var.environment}-bastion"
-#     }
-#     )
-#   }
-
-##new code
-resource "aws_instance" "bastion" {
-  ami                    = data.aws_ami.ami_info.id
+  instance_type = "t3.micro"
   vpc_security_group_ids = [data.aws_ssm_parameter.bastion_sg_id.value]
-  instance_type          = "t3.micro"
-  subnet_id   = local.public_subnet_id
+  # Convert StringList to list and get first element
+  subnet_id = local.public_subnet_id
+  ami = data.aws_ami.ami_info.id
+
   tags = merge(
-    var.common_tags,
+        var.common_tags,
     {
         Name = "${var.project_name}-${var.environment}-bastion"
     }
-  )
-}
+    )
+  }
+
+##new code
+# resource "aws_instance" "bastion" {
+#   ami                    = data.aws_ami.ami_info.id
+#   vpc_security_group_ids = [data.aws_ssm_parameter.bastion_sg_id.value]
+#   instance_type          = "t3.micro"
+#   subnet_id   = local.public_subnet_id
+#   tags = merge(
+#     var.common_tags,
+#     {
+#         Name = "${var.project_name}-${var.environment}-bastion"
+#     }
+#   )
+# }

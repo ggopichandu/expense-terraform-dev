@@ -6,6 +6,13 @@ data "aws_ssm_parameter" "frontend_sg_id" {
   name = "/${var.project_name}/${var.environment}/frontend_sg_id"
 }
 
+<<<<<<< HEAD
+=======
+data "aws_ssm_parameter" "ansible_sg_id" {
+  name = "/${var.project_name}/${var.environment}/ansible_sg_id"
+}
+
+>>>>>>> f988435 (expense-dev)
 data "aws_ssm_parameter" "private_subnet_ids" {
   name = "/${var.project_name}/${var.environment}/private_subnet_ids"
 }

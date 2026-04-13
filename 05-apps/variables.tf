@@ -14,3 +14,11 @@ variable "common_tags" {
         Terraform = "true"
     }
 }
+<<<<<<< HEAD
+=======
+
+variable "zone_name" {
+    default = "gopichand.online"
+  
+}
+>>>>>>> f988435 (expense-dev)

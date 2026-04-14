@@ -78,7 +78,7 @@ module "db" {
   db_name  = "transactions" #AWS will create this schema automatically
   username = "root"
   port     = "3306"
-  password_wo = "ExpenseApp1"
+  password = "ExpenseApp1"
   manage_master_user_password = false
   skip_final_snapshot = true
 

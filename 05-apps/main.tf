@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # module "backend" {
 #   source  = "terraform-aws-modules/ec2-instance/aws"
 
@@ -44,20 +43,6 @@ resource "aws_instance" "backend" {
   vpc_security_group_ids = [data.aws_ssm_parameter.backend_sg_id.value]
   instance_type          = "t3.micro"
   subnet_id   = local.private_subnet_id
-=======
-module "backend" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
-
-  version = "~> 5.0"
-
-  name = "${var.project_name}-${var.environment}-backend"
-
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = [data.aws_ssm_parameter.backend_sg_id.value]
-  # convert StringList to list and get first element
-  subnet_id = local.private_subnet_id
-  ami = data.aws_ami.ami_info.id
->>>>>>> f988435 (expense-dev)
   tags = merge(
     var.common_tags,
     {
@@ -66,34 +51,17 @@ module "backend" {
   )
 }
 
-<<<<<<< HEAD
 resource "aws_instance" "frontend" {
   ami                    = data.aws_ami.ami_info.id
   vpc_security_group_ids = [data.aws_ssm_parameter.frontend_sg_id.value]
   instance_type          = "t3.micro"
   subnet_id   = local.public_subnet_id
-=======
-module "frontend" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
-
-  version = "~> 5.0"
-
-  name = "${var.project_name}-${var.environment}-frontend"
-
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = [data.aws_ssm_parameter.frontend_sg_id.value]
-  # convert StringList to list and get first element
-  subnet_id = local.public_subnet_id
-  ami = data.aws_ami.ami_info.id
->>>>>>> f988435 (expense-dev)
   tags = merge(
     var.common_tags,
     {
         Name = "${var.project_name}-${var.environment}-frontend"
     }
   )
-<<<<<<< HEAD
-=======
 }
 
 module "ansible" {
@@ -151,5 +119,4 @@ module "records" {
     },
   ]
 
->>>>>>> f988435 (expense-dev)
 }

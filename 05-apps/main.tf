@@ -110,7 +110,7 @@ module "records" {
       ]
     },
     {
-      name    = "" #gopichand.online
+      name    = "" #lakshith.online
       type    = "A"
       ttl     = 1
       records = [
